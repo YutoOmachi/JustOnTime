@@ -26,6 +26,7 @@ function customerRegisterStrategy(passport) {
                     email: email,
                     firstName: req.body.firstName,
                     lastName: req.body.lastName,
+                    phoneNumber: req.body.phoneNumber,
                     password: hashedPassword
                 });
                 console.log(JSON.stringify(customer))

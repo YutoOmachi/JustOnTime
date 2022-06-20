@@ -1,23 +1,40 @@
 import mongoose from 'mongoose'
+import { addressSchema } from './schemas/address.schema.js';
+import validator from 'validator'
+const { isEmail, isMobilePhone } = validator
 
 const customerSchema = mongoose.Schema({
     firstName: {
         type: String,
         required: true,
         trim: true
-    },      
+    },    
     lastName: {
         type: String,
         required: true,
         trim: true
-    },    
-    email: {
-        type: String,
-        required: true,
+    },
+    address: {
+        type: addressSchema,
+        required: false
     },
     password: {
         type: String,
-        required: true
+        required: true,
+        select: false
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+        trim: true,
+        validate: [isEmail, "please fill a valid email"]
+    }, 
+    phoneNumber: {
+        type: String,
+        required: true,
+        trim: true,
+        validator: [isMobilePhone, "please fill a valid phone number"]
     },
     isVerified: {
         type: Boolean,

@@ -11,7 +11,7 @@ function configOrganizerLoginStrategy(passport) {
         async (email, password, done) => {
             try{
                 console.log(email + " / " + password)
-                const eventOrganizer = await EventOrganizer.find({email: email}); //This line must search users using email and password
+                const eventOrganizer = await EventOrganizer.find({email: email}).select("password"); //This line must search users using email and password
                 console.log(JSON.stringify(eventOrganizer))
                 // bcrypt is not comparing correctly
                 if(await bcrypt.compare(password, eventOrganizer.password)){

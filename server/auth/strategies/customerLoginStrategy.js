@@ -9,7 +9,7 @@ function configCustomerLoginStrategy(passport) {
         {usernameField: "email"},
         async (email, password, done) => {
             try{
-                const customer = await Customer.findOne({email: email}); //This line must search users using email and password
+                const customer = await Customer.findOne({email: email}).select("password"); //This line must search users using email and password
                 console.log(JSON.stringify(customer))
                 console.log(password + ' / ' + customer.password);
                 if(await bcrypt.compare(password, customer.password)){

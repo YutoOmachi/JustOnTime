@@ -2,6 +2,7 @@ import passport from 'passport';
 import crypto from 'crypto';
 import { Customer } from '../models/customerModel.js';
 import { VerificationToken } from '../models/verificationTokenModel.js';
+import { sendEmail } from '../util/mailerUtil.js';
 
 const registerCustomer = async (req, res, next) => {
     await passport.authenticate("registerCustomer", 
