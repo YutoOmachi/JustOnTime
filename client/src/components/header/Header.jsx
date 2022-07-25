@@ -2,7 +2,6 @@ import React from 'react'
 
 import Navbar from 'react-bootstrap/Navbar'
 import UserButton from './userbutton/UserButton'
-import Search from './search/search'
 
 import logo from '../../logo_cropped.png'
 
@@ -22,7 +21,6 @@ function Header() {
                     />
                 </Navbar.Brand>
             </a>
-            <Search/>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <UserButton />
