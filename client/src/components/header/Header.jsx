@@ -22,6 +22,7 @@ function Header() {
                 </Navbar.Brand>
             </a>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <a id="selling-button" className="mt-2" href="/organizer/signup" >Interested in selling?</a>
             <Navbar.Collapse id="basic-navbar-nav">
             <UserButton />
             </Navbar.Collapse>
